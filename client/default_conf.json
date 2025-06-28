@@ -1,0 +1,8 @@
+{
+	"user": "youth",
+	"server-port": 9999,
+	"server-ipaddr": "127.0.0.1",
+	"log-level": "defualt",
+	"save-path": "~/Project/cloud-disk/double/client/save",
+	"jwt": ""
+}
