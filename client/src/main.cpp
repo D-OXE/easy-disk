@@ -18,12 +18,24 @@ int main()
 	    else if (select == 'l' || select == 'L')
 		{
 		    // 登陆
-		    user.Login();
+		    int ans = user.Login();
+		    if (ans == 0)
+			{
+			    user.eventloop();
+			    // success
+			}
+		    else if (ans == 1)
+			{
+			    // nouser
+			}
+		    else
+			{
+			    // timeout
+			}
 		}
 	    else if (select == 'q' || select == 'Q')
 		{
-		    // 登陆
-		    // login();
+		    std::cout << "江湖再见\n";
 		    break;
 		}
 	    else

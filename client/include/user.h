@@ -32,6 +32,7 @@ class User
     int getcmd();
     int Login();
     int Register();
+    void eventloop();
 
   private:
     // ================================成员方法================================
