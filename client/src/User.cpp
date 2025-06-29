@@ -12,6 +12,15 @@
  */
 User::User() : m_netlinker()
 {
+    // 维护一个命令映射表
+    m_cmdmaps["ls"] = OPERATION::LS;
+    m_cmdmaps["push"] = OPERATION::PUSH;
+    m_cmdmaps["pull"] = OPERATION::PULL;
+    m_cmdmaps["delete"] = OPERATION::DELETE;
+    m_cmdmaps["mkdir"] = OPERATION::MKDIR;
+    m_cmdmaps["pwd"] = OPERATION::PWD;
+    m_cmdmaps["cd"] = OPERATION::CD;
+
     // 打开配置文件
     std::ifstream ifs("./default_conf.json");
     if (!ifs.is_open())

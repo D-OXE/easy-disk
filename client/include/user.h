@@ -5,6 +5,7 @@
 #include <boost/json/value.hpp>
 #include <fstream>
 #include <string>
+#include <unordered_map>
 /*
 会使用的数据结构,和常量
 */
@@ -14,6 +15,8 @@ const std::string config_file = "../default_conf.json";
 // 这些枚举类型操作就和在linux下的命令一样.
 enum class OPERATION
 {
+    ERROR = -1,
+    NORMAL,
     LS,
     PUSH,
     PULL,
@@ -29,7 +32,7 @@ class User
     User();
     ~User() = default;
     // 等待输入命令
-    int getcmd();
+    OPERATION getcmd();
     int Login();
     int Register();
     void eventloop();
@@ -55,8 +58,8 @@ class User
     int connect_to_server();
 
     // =================================成员变量===============================
-
-    std::string m_current_file_position; // 当前浏览文件路径
+    std::unordered_map<std::string, OPERATION> m_cmdmaps; // 命令映射表.
+    std::string m_current_file_position;		  // 当前浏览文件路径
     NetLinker m_netlinker;
     boost::json::object obj; // 配置文件的json库内容
 
